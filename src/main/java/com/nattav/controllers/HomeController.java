@@ -12,14 +12,11 @@ public class HomeController {
 	
 	
 	@RequestMapping(value="/")
-	public ModelAndView indexindex2() throws Exception{
+	public ModelAndView index() throws Exception{
 		
 		
 		
 		ModelAndView mv = new ModelAndView("index");
-		
-		System.out.println("ok0");
-		
 		
 		return mv;
 	}
