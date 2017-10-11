@@ -377,7 +377,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>volleyCommunity</finalName>
+		<finalName>myTemplate</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>

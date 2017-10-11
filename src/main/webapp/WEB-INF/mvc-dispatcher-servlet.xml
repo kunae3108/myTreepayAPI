@@ -15,17 +15,18 @@
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
+	<!--mvc config-->
+	<mvc:annotation-driven  />
+	
 	<!-- mvc components -->
 	<context:component-scan base-package="com.nattav" />
 	
-	<!--mvc config-->
-	<mvc:annotation-driven enable-matrix-variables="true" />
 	<mvc:resources mapping="/static/**" location="/" />
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/pages/</value>
+			<value>/WEB-INF/pages/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
