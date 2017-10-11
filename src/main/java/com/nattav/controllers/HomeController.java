@@ -8,8 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Controller
-@Configuration
-@EnableWebMvc
 public class HomeController {
 	
 	
