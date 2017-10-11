@@ -5,7 +5,7 @@
   <artifactId>myTemplate</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
-  <name>myTemplate Maven Webapp</name>
+  <name>myTreepayAPI Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -377,7 +377,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>myTemplate</finalName>
+		<finalName>myTreepayAPI</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
