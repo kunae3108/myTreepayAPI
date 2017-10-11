@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class HomeController {
 	
 	
-	@RequestMapping(value="/",method= RequestMethod.GET)
+	@RequestMapping(value="/")
 	public ModelAndView indexindex2() throws Exception{
 		
 		
