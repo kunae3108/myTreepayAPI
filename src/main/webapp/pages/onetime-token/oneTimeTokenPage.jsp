@@ -61,13 +61,14 @@
 </script>
 </head>
 <body>
+	<a href="${pageContext.request.contextPath}/"><input type="button" value="Back"></a>
 	<form:form name='form_pay' id="form_pay" method="post" action="ott-process" modelAttribute="ottModel" >
 		<p>
 			<strong>Integration Information</strong><br> 
 			cert_url : <form:input type="text" path="cert_url" id="cert_url" value="http://localhost:8080/myTreepayAPI/ott-index" />
 			<br> 
-<%-- 			ret_url : <form:input type="text" path="ret_url" id="ret_url" value="http://localhost:8080/myTreepayAPI/success.jsp" /> --%>
-<!-- 			<br> -->
+			ret_url : <form:input type="text" path="ret_url" id="ret_url" value="http://localhost:8080/myTreepayAPI/ott-succss" />
+			<br>
 			ret_field : <form:input type="text" path="ret_field" id="ret_field" value="m_Completepayment" />
 			<br>
 			ver : <form:input type="text" path="ver" id="ver" value="1.0" />

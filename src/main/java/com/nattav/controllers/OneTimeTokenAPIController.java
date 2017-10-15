@@ -4,11 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -18,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.nattav.models.OttModel;
+import com.nattav.models.PaymentModel;
 
 @Controller
 public class OneTimeTokenAPIController {
@@ -43,15 +49,14 @@ public class OneTimeTokenAPIController {
 		System.out.println("\npay_type:" + ottModel.getPay_type() + " order_no:" + ottModel.getOrder_no()
 				+ " trade_mony:" + ottModel.getTrade_mony() + " site_cd:" + ottModel.getSite_cd() + " secure_key:"
 				+ ottModel.getSecure_key() + " ott:" + ottModel.getTrade_mony());
+
 		try {
 			MessageDigest md_sha2 = MessageDigest.getInstance("SHA-256");
-
+			byte byteData[] = null;
 			// Make hash data
 			md_sha2.update(hash_string.getBytes("UTF-8"));
+			byteData = md_sha2.digest();
 
-			byte byteData[] = md_sha2.digest();
-
-			// Convert to Hex
 			for (int i = 0; i < byteData.length; i++) {
 				hash_data += Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1);
 			}
@@ -128,4 +133,35 @@ public class OneTimeTokenAPIController {
 		return model;
 	}
 
+	@RequestMapping(value = "/ott-succss", method = RequestMethod.POST)
+	public ModelAndView ottSuccess(@ModelAttribute("res_cd") String res_cd, @ModelAttribute("res_msg") String res_msg,
+			@ModelAttribute("tno") String tno, @ModelAttribute("trade_mony") String trade_mony,
+			@ModelAttribute("trade_ymd") String trade_ymd, @ModelAttribute("trade_hms") String trade_hms,
+			@ModelAttribute("card_no") String card_no, @ModelAttribute("auth_no") String auth_no,
+			@ModelAttribute("auth_ymd") String auth_ymd, @ModelAttribute("auth_hms") String auth_hms,
+			HttpServletRequest request) {
+
+		PaymentModel pm = new PaymentModel();
+		ModelAndView modelAndView = new ModelAndView("onetime-token/oneTimeTokenSuccess");
+		try {
+			request.setCharacterEncoding("UTF-8");
+
+			pm.setRes_cd(res_cd);
+			pm.setRes_msg(res_msg);
+			pm.setTno(tno);
+			pm.setTrade_mony(trade_mony);
+			pm.setTrade_hms(trade_hms);
+			pm.setCard_no(card_no);
+			pm.setAuth_no(auth_no);
+			pm.setAuth_ymd(auth_ymd);
+			pm.setAuth_hms(auth_hms);
+			System.out.println(pm.toString());
+			modelAndView.addObject("message", pm);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return modelAndView;
+	}
 }
