@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.nattav</groupId>
-  <artifactId>myTemplate</artifactId>
-  <packaging>war</packaging>
-  <version>1.0</version>
-  <name>myTreepayAPI Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  
-  <properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.nattav</groupId>
+	<artifactId>myTemplate</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+	<name>myTreepayAPI Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
 		<plugin.compiler.version>3.1</plugin.compiler.version>
 		<java.compiler.version>1.8</java.compiler.version>
 		<spring-mvc-version>4.2.6.RELEASE</spring-mvc-version>
-		<servlet.api.version>3.1.0</servlet.api.version>
+		<servlet.api.version>4.0.0</servlet.api.version>
 		<jstl-version>1.2</jstl-version>
 		<dom4j-version>1.6.1</dom4j-version>
 		<common-logging-version>1.2</common-logging-version>
@@ -68,11 +68,11 @@
 
 	<dependencies>
 		<!-- MySQL database driver -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>mysql</groupId> -->
-<!-- 			<artifactId>mysql-connector-java</artifactId> -->
-<!-- 			<version>${mysql.driver.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- <version>${mysql.driver.version}</version> -->
+		<!-- </dependency> -->
 		<!-- ############################################# Spring Framework(begin) 
 			############################################# -->
 		<dependency>
@@ -142,47 +142,47 @@
 		<!-- ######################################### Hibernate Framework(start) 
 			############################################ -->
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-validator</artifactId> -->
-<!-- 			<version>${hibernate.validator.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-validator</artifactId> -->
+		<!-- <version>${hibernate.validator.version}</version> -->
+		<!-- </dependency> -->
 		<!-- Persistence -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.h2database</groupId> -->
-<!-- 			<artifactId>h2</artifactId> -->
-<!-- 			<version>${h2.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-entitymanager</artifactId> -->
-<!-- 			<version>${hibernate.entitymanager.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.commons</groupId> -->
-<!-- 			<artifactId>commons-dbcp2</artifactId> -->
-<!-- 			<version>${common.dbcp2.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.h2database</groupId> -->
+		<!-- <artifactId>h2</artifactId> -->
+		<!-- <version>${h2.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-entitymanager</artifactId> -->
+		<!-- <version>${hibernate.entitymanager.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.commons</groupId> -->
+		<!-- <artifactId>commons-dbcp2</artifactId> -->
+		<!-- <version>${common.dbcp2.version}</version> -->
+		<!-- </dependency> -->
 
 		<!-- hibernate -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-core</artifactId> -->
-<!-- 			<version>${hibernate-core-version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-core</artifactId> -->
+		<!-- <version>${hibernate-core-version}</version> -->
+		<!-- </dependency> -->
 
 		<!-- Querydsl -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.mysema.querydsl</groupId> -->
-<!-- 			<artifactId>querydsl-core</artifactId> -->
-<!-- 			<version>${querydsl.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.mysema.querydsl</groupId> -->
+		<!-- <artifactId>querydsl-core</artifactId> -->
+		<!-- <version>${querydsl.version}</version> -->
+		<!-- </dependency> -->
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.mysema.querydsl</groupId> -->
-<!-- 			<artifactId>querydsl-apt</artifactId> -->
-<!-- 			<version>${querydsl.version}</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.mysema.querydsl</groupId> -->
+		<!-- <artifactId>querydsl-apt</artifactId> -->
+		<!-- <version>${querydsl.version}</version> -->
+		<!-- </dependency> -->
 
 		<!-- <dependency> -->
 		<!-- <groupId>com.mysema.querydsl</groupId> -->
@@ -199,11 +199,11 @@
 
 
 		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate.javax.persistence</groupId> -->
-<!-- 			<artifactId>hibernate-jpa-2.1-api</artifactId> -->
-<!-- 			<version>1.0.0.Final</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate.javax.persistence</groupId> -->
+		<!-- <artifactId>hibernate-jpa-2.1-api</artifactId> -->
+		<!-- <version>1.0.0.Final</version> -->
+		<!-- </dependency> -->
 
 		<!-- ######################################### Hibernate Framework(end) 
 			############################################ -->
@@ -373,6 +373,14 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1</version>
+		</dependency>
+
 
 	</dependencies>
 
