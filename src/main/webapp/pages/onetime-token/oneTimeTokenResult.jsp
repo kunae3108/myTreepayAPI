@@ -23,7 +23,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var message = '${message}';
-		var jsonParse=JSON.parse(message);
 // 		if (/^[\],:{}\s]*$/.test(message.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
 // 			var resultParse = JSON.parse(text);
 // 			document.showBox = '<a href='+resultParse.auth_url+'><input type="button" value="Request to pay"></a>'
@@ -37,7 +36,9 @@
 			if (/^[\],:{}\s]*$/.test(message.replace(/\\["\\\/bfnrtu]/g, '@').
 			replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
 			replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-				$("#showBox").html('<p>Response : '+jsonParse.res_msg+' ('+jsonParse.res_cd+')</p>')
+				var jsonParse=JSON.parse(message);
+				$("#showBox").html('<p>Response : '+jsonParse.res_msg+' ('+jsonParse.res_cd+')</p>');
+				console.log(jsonParse);
 				if(jsonParse.res_cd=='C475'){
 					$("#showBox").append('<a href='+jsonParse.auth_url+'><input type="button" value="Request to pay"></a>');
 				}else{
@@ -46,7 +47,7 @@
 				
 			}else{
 
-				alert(jsonParse);
+				alert(message);
 
 			}
 	})
