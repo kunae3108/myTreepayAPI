@@ -61,13 +61,13 @@
 </script>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/"><input type="button" value="Back"></a>
+	<h3>One-Time token API</h3>
 	<form:form name='form_pay' id="form_pay" method="post" action="ott-process" modelAttribute="ottModel" >
 		<p>
 			<strong>Integration Information</strong><br> 
 			cert_url : <form:input type="text" path="cert_url" id="cert_url" value="http://localhost:8080/myTreepayAPI/ott-index" />
 			<br> 
-			ret_url : <form:input type="text" path="ret_url" id="ret_url" value="http://localhost:8080/myTreepayAPI/ott-succss" />
+			ret_url : <form:input type="text" path="ret_url" id="ret_url" value="" />
 			<br>
 			ret_field : <form:input type="text" path="ret_field" id="ret_field" value="m_Completepayment" />
 			<br>
@@ -78,45 +78,45 @@
 		<p>
 			<strong>Order Information</strong>
 			<br> 
-			order_no <form:input type="text" path="order_no" id="order_no" value="123456789" />
+			order_no <form:input type="text" path="order_no" id="order_no" />
 			<br>
-			trade_mony <form:input type="text" path="trade_mony" id="trade_mony" value="1004" />
+			trade_mony <form:input type="text" path="trade_mony" id="trade_mony" />
 			<br> 
-			user_id <form:input type="text" path="user_id" id="user_id" value="anusorn_pn2" />
+			user_id <form:input type="text" path="user_id" id="user_id" />
 			<br> 
-			good_name <form:input type="text" path="good_name" id="good_name" value="test product" />
+			good_name <form:input type="text" path="good_name" id="good_name" />
 			<br>
-			order_first_name <form:input type="text" path="order_first_name" id="order_first_name" value="hong" />
+			order_first_name <form:input type="text" path="order_first_name" id="order_first_name" />
 			<br> 
-			order_last_name <form:input type="text" path="order_last_name" id="order_last_name" value="gildong" />
+			order_last_name <form:input type="text" path="order_last_name" id="order_last_name" />
 			<br> 
-			order_city <form:input type="text" path="order_city" id="order_city" value="Seoul" />
+			order_city <form:input type="text" path="order_city" id="order_city" />
 			<br>
-			order_addr <form:input type="text" path="order_addr" id="order_addr" value="Guro-gu" />
+			order_addr <form:input type="text" path="order_addr" id="order_addr" />
 			<br> 
-			order_country <form:input type="text" path="order_country" id="order_country" value="TH" />
+			order_country <form:input type="text" path="order_country" id="order_country" />
 			<br>
-			order_email <form:input type="text" path="order_email" id="order_email" value="test@test.co.kr" />
+			order_email <form:input type="text" path="order_email" id="order_email"/>
 			<br> 
-			order_tel <form:input type="text" path="order_tel" id="order_tel" value="01012341234" />
+			order_tel <form:input type="text" path="order_tel" id="order_tel"/>
 			<br>
-			order_post_code <form:input type="text" path="order_post_code" id="order_post_code" value="303" />
+			order_post_code <form:input type="text" path="order_post_code" id="order_post_code"  />
 			<br> 
-			recv_first_name <form:input type="text" path="recv_first_name" id="recv_first_name" value="hong" />
+			recv_first_name <form:input type="text" path="recv_first_name" id="recv_first_name" />
 			<br>
-			recv_last_name <form:input type="text" path="recv_last_name" id="recv_last_name" value="gildong" />
+			recv_last_name <form:input type="text" path="recv_last_name" id="recv_last_name" />
 			<br> 
-			recv_city <form:input type="text" path="recv_city" id="recv_city" value="Seoul" />
+			recv_city <form:input type="text" path="recv_city" id="recv_city" />
 			<br>
-			recv_addr <form:input type="text" path="recv_addr" id="recv_addr" value="Guro-gu" />
+			recv_addr <form:input type="text" path="recv_addr" id="recv_addr" />
 			<br> 
-			recv_country <form:input type="text" path="recv_country" id="recv_country" value="Seoul" />
+			recv_country <form:input type="text" path="recv_country" id="recv_country" />
 			<br>
-			recv_email <form:input type="text" path="recv_email" id="recv_email" value="test@test.co.kr" />
+			recv_email <form:input type="text" path="recv_email" id="recv_email" />
 			<br> 
-			recv_tel <form:input type="text" path="recv_tel" id="recv_tel" value="01012341234" />
+			recv_tel <form:input type="text" path="recv_tel" id="recv_tel" />
 			<br>
-			recv_post_code <form:input type="text" path="recv_post_code" id="recv_post_code" value="303" />
+			recv_post_code <form:input type="text" path="recv_post_code" id="recv_post_code" />
 			<br>
 		</p>
 
@@ -143,14 +143,14 @@
 			<br> 
 			pay_type <form:input type="text" path="pay_type" id="pay_type" value="PACA" />
 			<br>
-			currency <form:input type="text" path="currency" id="currency" value="764" />
+			currency <form:input type="text" path="currency" id="currency" />
 			<br>
-			tp_langFlag <form:input type="text" path="tp_langFlag" id="tp_langFlag" value="th" />
+			tp_langFlag <form:input type="text" path="tp_langFlag" id="tp_langFlag" />
 			<br> 
-			site_cd <form:input type="text" path="site_cd" id="site_cd" value="A0000187FB" />
+			site_cd <form:input type="text" path="site_cd" id="site_cd" />
 			<br>
 			secure_key <form:input type="text" path="secure_key" id="secure_key" 
-			value="0alx7PU-l5C5DyXdc5uuPFz5T3lbOfYQ6BMro-8AV14cuw8vGVc92mHEqY-sHauNy6Is4bA4lNjqEEOBjKkfAc8ECWhIKb2rNWJo5r-swvc95yncWI42uDgZX1F15yUFruzIA1OrcwtesS9e8ALnLx5JVbBCiqx.P1CbE0UgkGMWKUUc4SFPijYSKEwA3nkwm-KbvuGKHK9dWT7JSHuYEfCPsS93XVxWpp4vXsqNPtouicZzZqSctCggVvWMpnkXtazqHoBanPWMZcOwWFsAIZjmxc8C92ACMvXfE2yu3CZHfZg0verROuU5LNtp7wpW5idytJ3GKcBLJT2T8xpuf-u__" /> 
+			/> 
 		</p>
 
 		<p>
@@ -159,7 +159,8 @@
 			ott <form:input type="text" path="ott" id="ott" value="" /><br>
 		</p>
 
-		<input type="button" value="Request payment" onclick="fn_treepay_approve();" />
+		<a href="${pageContext.request.contextPath}/createOrder"><input type="button"value="Back" /></a>
+		<input type="button" value="Pay Request" onclick="fn_treepay_approve();" />
 	</form:form>
 </body>
 </html>

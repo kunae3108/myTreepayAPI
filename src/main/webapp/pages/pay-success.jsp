@@ -7,7 +7,7 @@
 </head>
 <body>
 	<a href="${pageContext.request.contextPath}/"><input type="button" value="Home"></a>
-	<a href="${pageContext.request.contextPath}/ott-index"><input type="button" value="Back to OTT"></a>
+	<a href="${pageContext.request.contextPath}/createOrder"><input type="button" value="Create Order Page"></a>
 	<table width="70%"align="center">
 		<tr>
 			<td>red_code : </td><td>${message.res_cd }</td>

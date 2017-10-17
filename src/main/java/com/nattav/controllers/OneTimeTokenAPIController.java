@@ -12,6 +12,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.ObjectUtils.Null;
 import org.json.simple.JSONObject;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,9 @@ import com.nattav.models.PaymentResultModel;
 public class OneTimeTokenAPIController {
 
 	@RequestMapping(value = "/ott-index")
-	public ModelAndView initOneTimeToken() {
+	public ModelAndView initOneTimeToken(@ModelAttribute("paymentModel") PaymentModel paymentModel) {
 		ModelAndView model = new ModelAndView("onetime-token/oneTimeTokenPage");
-		model.addObject("ottModel", new OttModel());
+		model.addObject("ottModel", null!=paymentModel?paymentModel:new PaymentModel());
 		return model;
 	}
 
@@ -139,33 +140,5 @@ public class OneTimeTokenAPIController {
 		}
 
 		return model;
-	}
-
-	@RequestMapping(value = "/ott-succss", method = RequestMethod.POST)
-	public ModelAndView ottSuccess(@ModelAttribute("res_cd") String res_cd, @ModelAttribute("res_msg") String res_msg,
-			@ModelAttribute("tno") String tno, @ModelAttribute("trade_mony") String trade_mony,
-			@ModelAttribute("trade_ymd") String trade_ymd, @ModelAttribute("trade_hms") String trade_hms,
-			@ModelAttribute("card_no") String card_no, @ModelAttribute("auth_no") String auth_no,
-			@ModelAttribute("auth_ymd") String auth_ymd, @ModelAttribute("auth_hms") String auth_hms) {
-
-		PaymentResultModel pm = new PaymentResultModel();
-		ModelAndView modelAndView = new ModelAndView("onetime-token/oneTimeTokenSuccess");
-		try {
-			pm.setRes_cd(res_cd);
-			pm.setRes_msg(res_msg);
-			pm.setTno(tno);
-			pm.setTrade_mony(trade_mony);
-			pm.setTrade_hms(trade_hms);
-			pm.setTrade_ymd(trade_ymd);
-			pm.setCard_no(card_no);
-			pm.setAuth_no(auth_no);
-			pm.setAuth_ymd(auth_ymd);
-			pm.setAuth_hms(auth_hms);
-			System.out.println(pm.toString());
-			modelAndView.addObject("message", pm);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return modelAndView;
 	}
 }

@@ -20,6 +20,7 @@
 </head>
 
 <body>
+	<h3>Client Post using TreePay’s window</h3>
 	<form:form modelAttribute="paymentModel" name="tp_form">
 		<!-- Payment Process Parameters -->
         Pay Type : <form:input type="text" path="pay_type" />
@@ -92,7 +93,8 @@
 		<form:input type="hidden" path="hash_data" />
 		<form:input type="hidden" path="res_cd" />
 		<form:input type="hidden" path="res_msg" />
-		<input type="button" onclick="fn_treepay_approve();" value="payment"
+		<a href="${pageContext.request.contextPath}/createOrder"><input type="button"value="Back" /></a>
+		<input type="button" onclick="fn_treepay_approve();" value="Pay"
 			alt="">
 	</form:form>
 

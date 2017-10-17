@@ -26,19 +26,27 @@
 	    
 	    document.tp_form.order_no.value = order_no;
 	
-	    document.tp_form.ret_url.value = "http://localhost:8080/myTreepayAPI/ott-succss";
+	    document.tp_form.ret_url.value = "http://localhost:8080/myTreepayAPI/pay-success";
 	}
 
     //Call TreePay payment window
     function submitdataforhash() {
         /* TP_Pay_Execute(document.tp_form); */ // Call TreePay payment window with document form name
-    	document.tp_form.submit();
+    		document.tp_form.action = "redirect-beforePay";
+    		document.tp_form.submit();
+    }
+    
+    //Call TreePay payment window
+    function submitToOTT() {
+        /* TP_Pay_Execute(document.tp_form); */ // Call TreePay payment window with document form name
+    		document.tp_form.action = "ott-index";
+    		document.tp_form.submit();
     }
 </script>
 </head>
 
 <body>
-    <form:form name="tp_form" action="beforePay" method="post" modelAttribute="paymentModel">
+    <form:form name="tp_form" method="post" modelAttribute="paymentModel">
  		<!-- Payment Process Parameters -->
  		Pay Type :
         <form:select path="pay_type">
@@ -87,7 +95,7 @@
         User ID : <form:input type="text" path="user_id" value="test"/><br>
         Order No : <form:input type="text" path="order_no" value=""/><br>
         Good Name : <form:input type="text" path="good_name" value="goods"/><br>
-        Trade Money : <form:input type="text" path="trade_mony" value="9999"/><br>
+        Trade Money : <form:input type="text" path="trade_mony" value="909"/><br>
         Order FName : <form:input type="text" path="order_first_name" value="hong"/><br>
         Order LName : <form:input type="text" path="order_last_name" value="gildong"/><br>
         Order City : <form:input type="text" path="order_city" value="Bangkok"/><br>
@@ -107,7 +115,9 @@
         Recv Post Code : <form:input type="text" path="recv_post_code" value="10400"/><br>
         Logo Type : <form:input type="text" path="logo_type" value="F"/><br>
         
-        <input type="button" name="hash" value="hash" onClick="submitdataforhash();" > 
+<%-- 		<a href="${pageContext.request.contextPath}/ott-index"><input type="button"value="Onetime Token" /></a> --%>
+        <input type="button" name="ott" value="OTT Request" onClick="submitToOTT();" > 
+        <input type="button" name="hash" value="Redirect Pay" onClick="submitdataforhash();" > 
 
     </form:form>
 

@@ -10,6 +10,12 @@ public class PaymentModel {
 	private String user_id;
 	private String bill_end;
 	private String bill_freq;
+	private String card_number;
+	private String expiration_yy;
+	private String expiration_mm;
+	private String first_card_holder_name;
+	private String last_card_holder_name;
+	private String cvn;
 	private String hash_data;
 	private String hash_string;
 	private String userid;
@@ -34,9 +40,93 @@ public class PaymentModel {
 	private String tp_langFlag;
 	private String ret_url;
 	private String currency;
-	
+	private String ott;
+	private String cert_url;
+	private String ret_field;
+	private String ver;
+
 	private String res_cd;
 	private String res_msg;
+
+	public String getFirst_card_holder_name() {
+		return first_card_holder_name;
+	}
+
+	public void setFirst_card_holder_name(String first_card_holder_name) {
+		this.first_card_holder_name = first_card_holder_name;
+	}
+
+	public String getLast_card_holder_name() {
+		return last_card_holder_name;
+	}
+
+	public void setLast_card_holder_name(String last_card_holder_name) {
+		this.last_card_holder_name = last_card_holder_name;
+	}
+
+	public String getCvn() {
+		return cvn;
+	}
+
+	public void setCvn(String cvn) {
+		this.cvn = cvn;
+	}
+
+	public String getExpiration_yy() {
+		return expiration_yy;
+	}
+
+	public void setExpiration_yy(String expiration_yy) {
+		this.expiration_yy = expiration_yy;
+	}
+
+	public String getExpiration_mm() {
+		return expiration_mm;
+	}
+
+	public void setExpiration_mm(String expiration_mm) {
+		this.expiration_mm = expiration_mm;
+	}
+
+	public String getCard_number() {
+		return card_number;
+	}
+
+	public void setCard_number(String card_number) {
+		this.card_number = card_number;
+	}
+
+	public String getVer() {
+		return ver;
+	}
+
+	public void setVer(String ver) {
+		this.ver = ver;
+	}
+
+	public String getRet_field() {
+		return ret_field;
+	}
+
+	public void setRet_field(String ret_field) {
+		this.ret_field = ret_field;
+	}
+
+	public String getCert_url() {
+		return cert_url;
+	}
+
+	public void setCert_url(String cert_url) {
+		this.cert_url = cert_url;
+	}
+
+	public String getOtt() {
+		return ott;
+	}
+
+	public void setOtt(String ott) {
+		this.ott = ott;
+	}
 
 	public String getRes_cd() {
 		return res_cd;
