@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.nattav.models.OttModel;
 import com.nattav.models.PaymentModel;
+import com.nattav.models.PaymentResultModel;
 
 @Controller
 public class OneTimeTokenAPIController {
@@ -147,7 +148,7 @@ public class OneTimeTokenAPIController {
 			@ModelAttribute("card_no") String card_no, @ModelAttribute("auth_no") String auth_no,
 			@ModelAttribute("auth_ymd") String auth_ymd, @ModelAttribute("auth_hms") String auth_hms) {
 
-		PaymentModel pm = new PaymentModel();
+		PaymentResultModel pm = new PaymentResultModel();
 		ModelAndView modelAndView = new ModelAndView("onetime-token/oneTimeTokenSuccess");
 		try {
 			pm.setRes_cd(res_cd);
@@ -155,6 +156,7 @@ public class OneTimeTokenAPIController {
 			pm.setTno(tno);
 			pm.setTrade_mony(trade_mony);
 			pm.setTrade_hms(trade_hms);
+			pm.setTrade_ymd(trade_ymd);
 			pm.setCard_no(card_no);
 			pm.setAuth_no(auth_no);
 			pm.setAuth_ymd(auth_ymd);
