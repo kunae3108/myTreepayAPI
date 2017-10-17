@@ -8,6 +8,7 @@ public class PaymentModel {
 	private String site_cd;
 	private String secure_key;
 	private String user_id;
+	private String passwd;
 	private String bill_end;
 	private String bill_freq;
 	private String card_number;
@@ -44,9 +45,35 @@ public class PaymentModel {
 	private String cert_url;
 	private String ret_field;
 	private String ver;
-
+	private String token_no;
+	private String fp_id;
+	
 	private String res_cd;
 	private String res_msg;
+
+	public String getFp_id() {
+		return fp_id;
+	}
+
+	public void setFp_id(String fp_id) {
+		this.fp_id = fp_id;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public String getToken_no() {
+		return token_no;
+	}
+
+	public void setToken_no(String token_no) {
+		this.token_no = token_no;
+	}
 
 	public String getFirst_card_holder_name() {
 		return first_card_holder_name;

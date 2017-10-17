@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>One Time Token API Validation Result</h3>
+	<h3>One Click Token API Validation Result</h3>
 	<div id=showBox >
 	
 	</div>
@@ -21,7 +21,6 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var message = '${message}';
-		
 			if (/^[\],:{}\s]*$/.test(message.replace(/\\["\\\/bfnrtu]/g, '@').
 			replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
 			replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
@@ -29,9 +28,9 @@
 				$("#showBox").html('<p>Response : '+jsonParse.res_msg+' ('+jsonParse.res_cd+')</p>');
 				console.log(jsonParse);
 				if(jsonParse.res_cd=='C475'){
-					$("#showBox").append('<a href='+jsonParse.auth_url+'><input type="button" value="Request to pay"></a>');
+					$("#showBox").append('<a href='+jsonParse.auth_url+'><input type="button" value="Submit"></a>');
 				}else{
-					$("#showBox").append('<a href="${pageContext.request.contextPath}/ott-index"><input type="button"value="Back" /></a>');
+					$("#showBox").append('<a href="${pageContext.request.contextPath}/createOrder"><input type="button"value="Back" /></a>');
 				}
 				
 			}else{

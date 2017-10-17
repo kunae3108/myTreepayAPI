@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.security.*" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,6 +9,10 @@
 <title>Treepay</title>
 
 <script type="text/javascript" src="https://paytest.treepay.co.th/js/plugin.tp" charset="utf-8"></script>
+<%-- <script src="<c:url value='/static/js/jquery-3.2.0.js'/>"/> --%>
+
+
+
 <script type="text/javascript">
 	window.onload = function()
 	{
@@ -29,28 +33,60 @@
 	    document.tp_form.ret_url.value = "http://localhost:8080/myTreepayAPI/pay-success";
 	}
 
+	
+	
     //Call TreePay payment window
     function submitdataforhash() {
-        /* TP_Pay_Execute(document.tp_form); */ // Call TreePay payment window with document form name
     		document.tp_form.action = "redirect-beforePay";
     		document.tp_form.submit();
     }
     
     //Call TreePay payment window
     function submitToOTT() {
-        /* TP_Pay_Execute(document.tp_form); */ // Call TreePay payment window with document form name
     		document.tp_form.action = "ott-index";
     		document.tp_form.submit();
     }
+    
+    function submitToOCT(){
+		document.tp_form.action = "oct-index";
+		document.tp_form.submit();
+    }
+    
+    $(document).ready(function(){
+    	
+    	
+    		$("#pay_type").on('change',function(){
+    			if($(this).val() == 'PAOC'){
+    				$("#oct").show();
+    				$("#passwd").show();
+    				$("#token_no").show();
+    				
+    				$("#ott").hide();
+    				$("#redirect").hide();
+    			}else{
+    				$("#oct").hide();
+    				$("#passwd").hide();
+    				$("#token_no").hide();
+
+    				$("#ott").show();
+    				$("#redirect").show();
+    			}
+    			
+    		})
+    		
+    })
 </script>
 </head>
 
 <body>
+	<a href="${pageContext.request.contextPath}/"><input type="button"value="Back" style="margin-bottom: 10px;"/></a>
+	<h3>Order Infomation</h3>
     <form:form name="tp_form" method="post" modelAttribute="paymentModel">
  		<!-- Payment Process Parameters -->
  		Pay Type :
-        <form:select path="pay_type">
+        <form:select id="pay_type" path="pay_type">
             <option value="PACA">Credit/Debit Card</option>
+            <option value="PAOC">One Click Payment for Debit/Credit Card</option>
             <option value="PARC">Recurring Payment</option>
             <option value="PAIN">Installment</option>
             <option value="PABK">Direct debit</option>
@@ -65,9 +101,9 @@
         
         <!-- Merchant ID -->
         Site CD :
-        <form:input type="text" path="site_cd" value="A0000187FB"/><br>
+        <form:input type="text" path="site_cd" value="A0000228NH"/><br>
         Secure Key : 
-        <form:input type="text" path="secure_key" value="0alx7PU-l5C5DyXdc5uuPFz5T3lbOfYQ6BMro-8AV14cuw8vGVc92mHEqY-sHauNy6Is4bA4lNjqEEOBjKkfAc8ECWhIKb2rNWJo5r-swvc95yncWI42uDgZX1F15yUFruzIA1OrcwtesS9e8ALnLx5JVbBCiqx.P1CbE0UgkGMWKUUc4SFPijYSKEwA3nkwm-KbvuGKHK9dWT7JSHuYEfCPsS93XVxWpp4vXsqNPtouicZzZqSctCggVvWMpnkXtazqHoBanPWMZcOwWFsAIZjmxc8C92ACMvXfE2yu3CZHfZg0verROuU5LNtp7wpW5idytJ3GKcBLJT2T8xpuf-u__"/><br>
+        <form:input type="text" path="secure_key" value="4UeRIkB.vADBwQtFLXlg825ATscKem1w8NVSwh7PpP6vD82Y8TAiu0.wKqIp-YHP0HEss9Dac0Alv-Zf0.QZYHQA0YYDrBjmhfX9mUzCqhsV3docOSKIAfxKETj-XZ-h2iSibhN4dyWdtsPOW-5K39LlsojAHeYHROslkx3-.7rh5i0uxEVY5Yxbsi7LvKLp7p2f7ljhXcSbT7Zmwv9dQjS1eaSwK6.uffEpDgpDYfNUCQ0zGsBqbs2eLbkdJw1gMI0AaahJ7ZeI6ec117VT8cPdB3eWP-btrwkklhfowPoUMSRRgoACxWy9LzAbfmyyoIEwtn8.M4fVcsyYxxxgLVY__"/><br>
         
         <!-- Parameters only for Recurring Payment -->
         Bill End :
@@ -92,7 +128,9 @@
         </form:select><br>
         
         <!-- Customer's Order information -->
-        User ID : <form:input type="text" path="user_id" value="test"/><br>
+        User ID : <form:input type="text" path="user_id" value="thom"/><br>
+        Password : <form:input id="passwd" type="text" path="passwd" value="123456"  cssStyle="display:none;"/><br>
+        Token No : <form:input id="token_no" type="text" path="token_no" value="1710492118000002" cssStyle="display:none;"/><br>
         Order No : <form:input type="text" path="order_no" value=""/><br>
         Good Name : <form:input type="text" path="good_name" value="goods"/><br>
         Trade Money : <form:input type="text" path="trade_mony" value="909"/><br>
@@ -115,9 +153,10 @@
         Recv Post Code : <form:input type="text" path="recv_post_code" value="10400"/><br>
         Logo Type : <form:input type="text" path="logo_type" value="F"/><br>
         
-<%-- 		<a href="${pageContext.request.contextPath}/ott-index"><input type="button"value="Onetime Token" /></a> --%>
-        <input type="button" name="ott" value="OTT Request" onClick="submitToOTT();" > 
-        <input type="button" name="hash" value="Redirect Pay" onClick="submitdataforhash();" > 
+		<p>Payment Method</p>
+        <input type="button" id="ott" name="ott" value="OTT Request" onClick="submitToOTT();" style="margin-right: 10px; background-color: #ffbac6;"/>
+        <input type="button" id="oct" name="oct" value="OCT Request" onClick="submitToOCT();" style="margin-right: 10px; background-color: #eef58c; display: none; "/>
+        <input type="button" id="redirect" name="redirect" value="Redirect Page" onClick="submitdataforhash();" style="background-color: #bee8c0;" /> 
 
     </form:form>
 

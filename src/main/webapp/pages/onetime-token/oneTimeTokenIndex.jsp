@@ -62,7 +62,7 @@
 </head>
 <body>
 	<h3>One-Time token API</h3>
-	<form:form name='form_pay' id="form_pay" method="post" action="ott-process" modelAttribute="ottModel" >
+	<form:form name='form_pay' id="form_pay" method="post" action="ott-process" modelAttribute="paymentModel" >
 		<p>
 			<strong>Integration Information</strong><br> 
 			cert_url : <form:input type="text" path="cert_url" id="cert_url" value="http://localhost:8080/myTreepayAPI/ott-index" />
@@ -149,7 +149,7 @@
 			<br> 
 			site_cd <form:input type="text" path="site_cd" id="site_cd" />
 			<br>
-			secure_key <form:input type="text" path="secure_key" id="secure_key" 
+			secure_key <form:input type="hidden" path="secure_key" id="secure_key" 
 			/> 
 		</p>
 

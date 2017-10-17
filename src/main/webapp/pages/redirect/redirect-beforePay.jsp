@@ -93,7 +93,7 @@
 		<form:input type="hidden" path="hash_data" />
 		<form:input type="hidden" path="res_cd" />
 		<form:input type="hidden" path="res_msg" />
-		<a href="${pageContext.request.contextPath}/createOrder"><input type="button"value="Back" /></a>
+		<a href="${pageContext.request.contextPath}/createOrder"><input type="button"value="Back" style="margin-top: 10px;"/></a>
 		<input type="button" onclick="fn_treepay_approve();" value="Pay"
 			alt="">
 	</form:form>
