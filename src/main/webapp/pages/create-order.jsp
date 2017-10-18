@@ -48,7 +48,7 @@
     }
     
     function submitToOCT(){
-		document.tp_form.action = "oct-index";
+		document.tp_form.action = "oct-process";
 		document.tp_form.submit();
     }
     
